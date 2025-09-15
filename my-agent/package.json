@@ -12,6 +12,8 @@
   "dependencies": {
     "@ai-sdk/google": "^2.0.14",
     "ai": "^5.0.44",
-    "gemini": "^7.5.2"
+    "gemini": "^7.5.2",
+    "simple-git": "^3.28.0",
+    "zod": "^4.1.8"
   }
 }
