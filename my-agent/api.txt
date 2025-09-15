@@ -1,0 +1,29 @@
+Tool: getFileChangesInDirectoryTool
+Description: Gets the code changes made in given directory
+Input:
+	rootDir (string) - The root directory
+Output: Array of { file: string; diff: string }
+
+Tool: generateCommitMessageTool
+Description: Generates a conventional commit message from diff / description input.
+Input:
+	rootDir (string) - The repository root directory
+	diff (string, optional) - Unified diff content. If omitted, staged changes are used.
+	description (string) - Short natural language description (what & why)
+	scope (string, optional) - Conventional commit scope (e.g. api, ui)
+	type (enum, optional) - One of feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert; inferred if omitted
+	body (string, optional) - Longer explanatory body
+	breaking (boolean, optional) - Marks as breaking change
+	issues (string[], optional) - Issue references like #123
+Output: A conventional commit message string.
+
+Tool: writeReviewMarkdownTool
+Description: Writes a markdown file containing the generated code review.
+Input:
+	rootDir (string) - Base directory to write file
+	filename (string) - Safe filename (alphanumeric, dash, underscore, dot). .md appended if missing
+	title (string) - Title heading for the review
+	review (string) - Full markdown body of the code review
+	overwrite (boolean, optional) - Allow overwriting existing file
+Output: { path: string; bytes: number }
+
